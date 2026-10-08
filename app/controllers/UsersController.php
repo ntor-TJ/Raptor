@@ -9,7 +9,7 @@ class UsersController extends Controller {
         
         // Employee account management is reserved for Admin and HR.
         if (!Policy::canManageEmployees()) {
-            $this->redirect('index.php?route=dashboard/executive');
+            $this->redirect('index.php?route=dashboard/index');
         }
 
         $this->userModel = $this->model('User');

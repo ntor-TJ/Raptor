@@ -100,7 +100,7 @@ class DashboardController extends Controller {
         // Employers, Managers, and Admins can access
         $allowedRoles = ['admin', 'manager', 'employer'];
         if (!in_array($_SESSION['user_role'], $allowedRoles)) {
-            $this->redirect('index.php?route=dashboard/channels');
+            $this->redirect('index.php?route=dashboard/index');
         }
 
         $data = [
@@ -118,7 +118,7 @@ class DashboardController extends Controller {
         // Analysts, Managers, and Admins can access
         $allowedRoles = ['admin', 'manager', 'analyst'];
         if (!in_array($_SESSION['user_role'], $allowedRoles)) {
-            $this->redirect('index.php?route=dashboard/executive');
+            $this->redirect('index.php?route=dashboard/index');
         }
 
         $data = [
@@ -134,7 +134,7 @@ class DashboardController extends Controller {
         // Analysts, Managers, and Admins can access
         $allowedRoles = ['admin', 'manager', 'analyst'];
         if (!in_array($_SESSION['user_role'], $allowedRoles)) {
-            $this->redirect('index.php?route=dashboard/executive');
+            $this->redirect('index.php?route=dashboard/index');
         }
 
         $data = [

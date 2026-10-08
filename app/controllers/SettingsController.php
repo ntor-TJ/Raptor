@@ -10,7 +10,7 @@ class SettingsController extends Controller {
         
         // Enforce RBAC: Settings are Admin-only
         if ($_SESSION['user_role'] !== 'admin') {
-            $this->redirect('index.php?route=dashboard/executive');
+            $this->redirect('index.php?route=dashboard/index');
         }
 
         $this->db = Database::getInstance()->getConnection();

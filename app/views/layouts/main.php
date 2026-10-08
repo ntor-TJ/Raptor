@@ -602,6 +602,11 @@
                         <i class="fa-solid fa-bell"></i>My Follow-ups
                     </a>
                 </li>
+                <li class="menu-item <?php echo (isset($active_tab) && $active_tab === 'my_payslips') ? 'active' : ''; ?>">
+                    <a href="index.php?route=payroll/myPayslips">
+                        <i class="fa-solid fa-money-bill-wave"></i>My Payslips
+                    </a>
+                </li>
                 <?php if ($isEmployee || $role === 'team_leader'): ?>
                 <li class="menu-item <?php echo (isset($active_tab) && $active_tab === 'myroute') ? 'active' : ''; ?>">
                     <a href="index.php?route=location/myday">
@@ -698,6 +703,21 @@
                 <li class="menu-item <?php echo (strpos($data['title'], 'Invoice') !== false || $data['title'] === 'Billing Ledger | Raptor CRM') ? 'active' : ''; ?>">
                     <a href="index.php?route=invoices/index">
                         <i class="fa-solid fa-file-invoice-dollar"></i>Invoicing
+                    </a>
+                </li>
+                <?php endif; ?>
+
+                <!-- Payroll & Compensation (Admin, HR) -->
+                <?php if (Policy::canManageEmployees() || in_array($_SESSION['user_role'], ['admin', 'hr'])): ?>
+                <li class="menu-header">Payroll</li>
+                <li class="menu-item <?php echo (isset($active_tab) && $active_tab === 'payroll') ? 'active' : ''; ?>">
+                    <a href="index.php?route=payroll/index">
+                        <i class="fa-solid fa-calculator"></i>Payroll Runs
+                    </a>
+                </li>
+                <li class="menu-item <?php echo (isset($active_tab) && $active_tab === 'salary_structures') ? 'active' : ''; ?>">
+                    <a href="index.php?route=payroll/structures">
+                        <i class="fa-solid fa-id-card-clip"></i>Salary Structures
                     </a>
                 </li>
                 <?php endif; ?>

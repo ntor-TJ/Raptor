@@ -37,7 +37,7 @@ test.describe('Raptor CRM seeded smoke suite', () => {
     const toggle = page.locator('#theme-toggle, [title*="Theme"], [title*="theme"]').first();
     if (await toggle.count()) {
       await toggle.click();
-      await expect(page.locator('html')).toHaveAttribute(/data-theme/, /dark|light/);
+      await expect(page.locator('html')).toHaveAttribute('data-theme', /dark|light/);
     }
   });
 
